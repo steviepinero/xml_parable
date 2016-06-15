@@ -23,20 +23,20 @@ class SessionsController < ApplicationController
   # POST /sessions
   # POST /sessions.json
 
-  def create
-    @user = User.find_by_email(params[:session][:email])
-    if @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
-      redirect_to '/'
-    else
-      redirect_to 'login'
-    end
-  end
-
-  def destroy
-    session[:user_id] = nil
+def create
+  @user = User.find_by_name(params[:session][:name])
+  if @user && @user.authenticate(params[:session][:password])
+    session[:user_id] = @user.id
     redirect_to '/'
+  else
+    redirect_to 'login'
   end
+end
+
+def destroy
+  session[:user_id] = nil
+  redirect_to '/'
+end
   # PATCH/PUT /sessions/1
   # PATCH/PUT /sessions/1.json
 

@@ -1,18 +1,25 @@
 Rails.application.routes.draw do
+  resources :projects
+  resources :projects
+  resources :projects
+  resources :projects
+  resources :users
   resources :sessions
   resources :items
   resources :products
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
+  get 'signup' => 'users#new'
+   resources :users
+
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sessions#new'
+  root 'projects#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -60,6 +67,5 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #     #   end
 end

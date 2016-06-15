@@ -1,0 +1,14 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <center>  <h1> Sign Up </h1>
+
+      <%= form_for(@user) do |f| %><br>
+      <%= f.text_field :email, :placeholder => "Email" %><br>
+      <%= f.text_field :password, :placeholder => "Password" %><br><br>
+      <%= f.submit "Create an account", class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </div>
+</div>

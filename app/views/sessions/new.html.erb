@@ -1,3 +1,14 @@
+
+
+<center><h1>Log In</h1>
+  <br>
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.email_field :email, :placeholder => "Name" %><br>
+  <%= f.password_field :password, :placeholder => "Password" %><br><br>
+  <%= f.submit "Log in", class: "btn btn-default" %>
+<% end %>
+</center>
+<!--
 <%= form_tag do %>
   <fieldset>
     <legend>Log In </legend>
@@ -14,4 +25,4 @@
     </div>
   </fieldset>
   <% end %>
-</div>
+</div> -->

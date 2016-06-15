@@ -11,16 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614175712) do
+ActiveRecord::Schema.define(version: 20160615113311) do
 
   create_table "items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "total_points"
+    t.string   "items"
+    t.string   "blueprint_file_name"
+    t.string   "blueprint_content_type"
+    t.integer  "blueprint_file_size"
+    t.datetime "blueprint_updated_at"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -29,8 +34,10 @@ ActiveRecord::Schema.define(version: 20160614175712) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password_digest"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
