@@ -31,6 +31,10 @@ gem 'bootstrap'
 gem 'paperclip', '~> 3.0'
 gem 'nokogiri'
 
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 # Use Unicorn as the app server
 # gem 'unicorn'
 
