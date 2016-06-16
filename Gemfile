@@ -30,6 +30,7 @@ gem 'bootstrap'
 
 gem 'paperclip', '~> 3.0'
 gem 'nokogiri'
+gem 'opml_saw', :git => "git://github.com/feedbin/opml_saw.git", :branch => "master"
 
 
 source 'https://rails-assets.org' do

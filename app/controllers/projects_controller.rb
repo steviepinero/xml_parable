@@ -1,51 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  # before_save :parse_file
 
-  def parse_file
-    tempfile = blueprint.queued_for_write[:original]
-    doc = Nokogiri::XML(tempfile)
-    parse_xml(doc)
-  end
 
- def parse_xml(doc)
-   doc.root.elements.each do |node|
-     parse_blueprints(node)
-   end
- end
-
- def parse_blueprints(node)
-   if node.node_name.eql? 'blp'
-     node.elements.each do |node|
-       parse_blueprint_segments(node)
-     end
-   end
- end
-
-def parse_blueprint_segments(node)
-  if node.node_name.eql? 'blpseg'
-    tmp_segment = Blueprintsegment.new
-    node.elements.each do |node|
-      parse_points(node,tmp_segment)
-    end
-    self.blueprintsegments << tmp_segment
-  end
-end
-
-def parse_points(node,tmp_segment)
-  if node.node_name.eql? 'blppt'
-    tmp_point = Point.new
-    tmp_point.high = node.attr("high")
-    tmp_point.low = node.attr("low")
-    node.elements.each do |node|
-      tmp_point.name = node.text.to_s if node.name.eql? 'name'
-      tmp_point.pts = node.text.to_s if node.name.eql? 'points'
-      tmp_point.description = node.text.to_s if node.name.eql? 'desc'
-      tmp_point.point_created_at = node.text.to_s if node.name.eql? 'time'
-    end
-    tmp_segment.points << tmp_point
-  end
-end
 
   # GET /projects
   # GET /projects.json
@@ -74,7 +30,7 @@ end
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project, notice: 'Blueprint was successfully uploaded.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -115,6 +71,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.permit(:name, :blueprint, :items, :points)
+      params.permit(:name, :opml, :total_points)
     end
 end

@@ -14,6 +14,8 @@
 ActiveRecord::Schema.define(version: 20160615113311) do
 
   create_table "items", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -22,10 +24,10 @@ ActiveRecord::Schema.define(version: 20160615113311) do
     t.string   "name"
     t.integer  "total_points"
     t.string   "items"
-    t.string   "blueprint_file_name"
-    t.string   "blueprint_content_type"
-    t.integer  "blueprint_file_size"
-    t.datetime "blueprint_updated_at"
+    t.string   "opml_file_name"
+    t.string   "opml_content_type"
+    t.integer  "opml_file_size"
+    t.datetime "opml_updated_at"
   end
 
   create_table "sessions", force: :cascade do |t|

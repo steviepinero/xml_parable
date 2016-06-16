@@ -5,6 +5,6 @@ class CreateProjects < ActiveRecord::Migration
       t.integer   :total_points
       t.string    :items
     end
-    add_attachment :projects, :blueprint
+    add_attachment :projects, :opml
   end
 end
