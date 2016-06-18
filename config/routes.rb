@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   resources :projects
-  resources :projects
-  resources :projects
-  resources :projects
   resources :users
   resources :sessions
   resources :items
-  resources :products
+
 
   get 'signup' => 'users#new'
    resources :users
