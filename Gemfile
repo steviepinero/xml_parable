@@ -28,9 +28,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap'
 
-gem 'paperclip', '~> 3.0'
+gem 'paperclip'
 gem 'nokogiri'
 gem 'opml_saw', :git => "git://github.com/feedbin/opml_saw.git", :branch => "master"
+
+
 
 
 source 'https://rails-assets.org' do
