@@ -26,12 +26,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap'
+gem 'twitter-bootstrap-rails'
 
-gem 'paperclip'
 gem 'nokogiri'
-gem 'opml_saw', :git => "git://github.com/feedbin/opml_saw.git", :branch => "master"
 
+
+gem 'opml_saw', :git => "git://github.com/steviepinero/opml_saw.git", :branch => "master"
+
+
+gem 'protected_attributes'
+
+gem 'wow-rails'
+
+gem "animate-rails"
 
 
 

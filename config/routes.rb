@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :documents
+  resources :projects do
+    collection { post :opml }
+  end
   resources :users
   resources :sessions
-  resources :items
 
 
   get 'signup' => 'users#new'
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'projects#index'
+  root 'documents#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
