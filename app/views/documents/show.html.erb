@@ -6,14 +6,20 @@
 </p>
 </head>
 <body>
-<p>
-  <strong>Content type:</strong>
-  <%= @document.content_type %>
-</p>
+ <!-- raw xml style -->
+<!-- <div class="xml_data animated slideInDown">
+<%# xml = Nokogiri::XML("#{@document.file_contents}") %>
+    <pre><%#= xml.to_html %><%#= number_field_tag 'quantity', nil, in: 1...10 %></pre>
+</div> -->
 
-<div class="xml_data">
-<% xml = Nokogiri::XML("#{@document.file_contents}") %>
-    <pre><%= xml %></pre>
+
+<div class="opml_data animated slideInDown">
+  <% contents = @document.file_contents %>
+  <% opml = OpmlSaw::Parser.new(contents) %>
+  <% opml.parse %>
+  <%= opml.feeds.sort{|a,b| a[':tag']<=>b[':tag']} %>
+   <!-- not sorting aplhabetically like I wanted -->
+  <%= number_field_tag 'quantity', nil, in: 1...10 %>
 </div>
 
 <%= link_to 'Temp Download', edit_document_path(@document), :class => 'btn btn-primary' %> |
