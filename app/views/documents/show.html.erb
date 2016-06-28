@@ -1,16 +1,22 @@
 <p id="notice"><%= notice %></p>
-
+<head>
 <p>
   <strong>Filename:</strong>
   <%= @document.filename %>
 </p>
-
+</head>
+<body>
 <p>
   <strong>Content type:</strong>
   <%= @document.content_type %>
 </p>
-<p><%= doc = Nokogiri::XML("#{@document.file_contents}").to_html %>
-    <%= doc %></p>
 
-<%= link_to 'download', edit_document_path(@document), :class => 'btn btn-primary' %> |
+<div class="xml_data">
+<% xml = Nokogiri::XML("#{@document.file_contents}") %>
+    <pre><%= xml %></pre>
+</div>
+
+<%= link_to 'Temp Download', edit_document_path(@document), :class => 'btn btn-primary' %> |
 <%= link_to 'Back', documents_path %>
+</body>
+</html>

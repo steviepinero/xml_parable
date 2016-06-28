@@ -17,7 +17,7 @@
         <td><%= document.filename %></td>
         <td><%= document.content_type %></td>
         <td><%= link_to 'Show', document, :class => 'btn btn-primary' %></td>
-        <td><%= link_to 'Download', edit_document_path(document), :class => 'btn btn-warning' %></td>
+        <td><%= link_to 'Temp Download', edit_document_path(document), :class => 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', document, :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
