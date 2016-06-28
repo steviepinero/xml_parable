@@ -19,7 +19,7 @@
   <% opml.parse %>
   <%= opml.feeds.sort{|a,b| a[':tag']<=>b[':tag']} %>
    <!-- not sorting aplhabetically like I wanted -->
-  <%= number_field_tag 'quantity', nil, in: 1...10 %>
+  <%= number_field_tag 'points', nil, in: 1...10 %>
 </div>
 
 <%= link_to 'Temp Download', edit_document_path(@document), :class => 'btn btn-primary' %> |
